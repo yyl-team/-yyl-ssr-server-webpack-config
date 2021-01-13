@@ -6,10 +6,6 @@
     "outDir": "./output",
     "skipLibCheck": true
   },
-  "include": [
-    "src/server/**/*",
-    "src/client/**/*",
-    "src/public/**/*"
-  ],
+  "include": ["src/server/**/*", "src/client/**/*", "src/public/**/*"],
   "exclude": ["node_modules"]
 }

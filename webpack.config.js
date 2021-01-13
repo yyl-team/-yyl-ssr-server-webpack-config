@@ -1,9 +1,10 @@
 const webpack = require('webpack')
 const path = require('path')
 const fs = require('fs')
+const nodeExternals = require('webpack-node-externals')
 
 const cwd = process.cwd()
-module.exports = env => {
+module.exports = (env) => {
   return {
     target: 'node',
     mode: 'none',
@@ -32,17 +33,7 @@ module.exports = env => {
         '@client': 'src/client'
       }
     },
-    externals: (() => {
-      const nodeModules = {}
-      fs.readdirSync('node_modules')
-        .filter(x => {
-          return !['.bin'].includes(x)
-        })
-        .forEach(name => {
-          nodeModules[name] = `commonjs ${name}`
-        })
-      return nodeModules
-    })(),
+    externals: [nodeExternals()],
     module: {
       rules: [
         {
@@ -76,7 +67,7 @@ module.exports = env => {
     plugins: [
       (() => {
         const r = {}
-        Object.keys(env).forEach(key => {
+        Object.keys(env).forEach((key) => {
           if (typeof env[key] === 'string') {
             r[`process.env.${key}`] = JSON.stringify(env[key])
           } else {
