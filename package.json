@@ -1,8 +1,8 @@
 {
   "name": "yyl-ssr-server-webpack-config",
-  "version": "0.1.0",
+  "version": "0.0.2",
   "description": "webpack config for yyl-ssr server side",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "repository": "https://github.com/jackness1208/yyl-ssr-server-webpack-config.git",
   "author": "liudaojie <liudaojie@yy.com>",
   "license": "MIT",
